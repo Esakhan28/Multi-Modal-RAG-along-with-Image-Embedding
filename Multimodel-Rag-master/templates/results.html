@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Query Results</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">Query Results</h1>
+        
+        <div class="mt-4">
+            <h3>Response:</h3>
+            <p>{{ response }}</p>
+        </div>
+
+        <div class="mt-4">
+            <h3>reference :</h3>
+            <ul>
+                {% for text in relevant_text %}
+                    <li>{{ text }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div class="mt-4">
+            <h3>Images</h3>
+            <div class="row">
+                {% for image in relevant_images %}
+                    <div class="col-md-4 mb-3">
+                        <img src="{{ url_for('static', filename=image) }}" alt="Relevant Image" class="img-fluid">
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="mt-4">
+            <a href="/" class="btn btn-secondary">Go Back</a>
+        </div>
+    </div>
+</body>
+</html>
